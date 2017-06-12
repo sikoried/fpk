@@ -43,4 +43,6 @@ _Lehrveranstaltung im 2. Semester des Bachelorstudiengangs Wirtschaftsinformatik
 6. Threading
 7. Generics: Bounds and Wildcards
 8. Observer Pattern
+    - Kühlschrank auf Party: Wer legt wann nach? Alle 5 Minuten, oder wenn bedarf ist -->smart fridge
+    - Erst konkret an der Klasse, dann Pattern extrahieren.
 9. HashMap als Kombi von BinBaum und List
