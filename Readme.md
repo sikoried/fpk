@@ -1,4 +1,4 @@
-# Fortgeschrittene Programmierkonzepte
+# Fortgeschrittene Programmierkonzepte (FPK)
 
 _Lehrveranstaltung im 2. Semester des Bachelorstudiengangs Wirtschaftsinformatik an der Hochschule Rosenheim._
 
@@ -13,6 +13,7 @@ _Lehrveranstaltung im 2. Semester des Bachelorstudiengangs Wirtschaftsinformatik
 4. Container und Iteratoren
     1. Liste
         - einfache ArrayList
+        - Generics?
         - geblockte ArrayList
         - LinkedList
     2. Iteration
@@ -38,11 +39,20 @@ _Lehrveranstaltung im 2. Semester des Bachelorstudiengangs Wirtschaftsinformatik
         - Iteration: Agenda! DFS, BFS
 5. Rekursion
     - Einfache (for/while->rekursion)
+    - Rekursion auf Tree (contains, toString())
     - MergeSort
     - BinarySearch?
-6. Threading
-7. Generics: Bounds and Wildcards
-8. Observer Pattern
+6. Threading 1: Basics
+    - Mehrere Koeche...sequenziell
+    - extends Thread
+    - Warten auf terminierung? Aktives Warten (.isAlive())
+    - Passives Warten (latch)
+    - Rueckgabetypen. Via Instanzvariable; Callable/Future.
+7. Threading 2: Limitierte Resourcen
+    - ExecutorService, warten auf Terminierung
+    - Sequenzielle Abhaengigkeiten: Chaining (CompletableFuture)
+    - Synchronisierung: wait(), yield(), synchronized
+8. Optional: Observer Pattern
     - Kühlschrank auf Party: Wer legt wann nach? Alle 5 Minuten, oder wenn bedarf ist -->smart fridge
     - Erst konkret an der Klasse, dann Pattern extrahieren.
-9. HashMap als Kombi von BinBaum und List
+9. Optional: Bounds und Wildcards; HashMap als Kombi von BinBaum und List

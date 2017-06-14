@@ -1,0 +1,41 @@
+group 'de.fh-rosenheim.wif-prg2'
+version '1.0'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M4'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+sourceCompatibility = 1.8
+ext.log4jVersion = '2.6.2'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+    compile("org.apache.logging.log4j:log4j-jul:${log4jVersion}")
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-M4")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-M4")
+}
+
+junitPlatform {
+    platformVersion = "1.0.0-M4"
+    filters {
+        engines {
+            include 'junit-jupiter'
+        }
+
+        enableStandardTestTask true
+        logManager 'org.apache.logging.log4j.jul.LogManager'
+    }
+}
