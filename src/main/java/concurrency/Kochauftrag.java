@@ -1,4 +1,4 @@
-package threads;
+package concurrency;
 
 class Kochauftrag {
 	String name;

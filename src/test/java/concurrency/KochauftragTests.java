@@ -1,4 +1,4 @@
-package threads;
+package concurrency;
 
 import org.junit.jupiter.api.Test;
 

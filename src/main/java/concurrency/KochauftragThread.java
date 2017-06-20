@@ -1,4 +1,4 @@
-package threads;
+package concurrency;
 
 class KochauftragThread extends Thread {
 	String name;
