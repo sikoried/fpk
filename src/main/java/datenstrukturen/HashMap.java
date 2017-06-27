@@ -1,5 +1,8 @@
 package datenstrukturen;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class HashMap<K, V> implements Map<K, V> {
 	static final int NUM_BINS = 15;
 
@@ -23,13 +26,18 @@ public class HashMap<K, V> implements Map<K, V> {
 		public V getValue() {
 			return value;
 		}
+
+		@Override
+		public String toString() {
+			return "(" + key + ", " + value + ")" + (next != null ? " " + next : "");
+		}
 	}
 
-	Entry<K, V>[] entries = (Entry<K, V>[]) new Object[NUM_BINS];
+	Entry<K, V>[] entries = (Entry<K, V>[]) Array.newInstance(Entry.class, NUM_BINS);
 
 	@Override
 	public void put(K key, V value) {
-		int bin = key.hashCode() % NUM_BINS;
+		int bin = Math.floorMod(key.hashCode(), NUM_BINS);
 		if (entries[bin] == null) {
 			entries[bin] = new Entry<>(key, value);
 			return;
@@ -51,7 +59,7 @@ public class HashMap<K, V> implements Map<K, V> {
 
 	@Override
 	public V get(K key) {
-		int bin = key.hashCode() % NUM_BINS;
+		int bin = Math.floorMod(key.hashCode(), NUM_BINS);
 		if (entries[bin] == null)
 			return null;
 		Entry<K, V> it = entries[bin];
@@ -67,5 +75,10 @@ public class HashMap<K, V> implements Map<K, V> {
 		}
 
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(entries);
 	}
 }
