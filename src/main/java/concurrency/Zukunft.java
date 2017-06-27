@@ -1,32 +1,38 @@
 package concurrency;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
 
-class Zukunft<T> {
-	T rueck;
-	Exception ex;
+public class Zukunft<T> {
+	private T rueck;
+	private Exception ex;
 
-	CountDownLatch latch = new CountDownLatch(1);
+	private Thread thread;
 
-	Zukunft(Callable<T> zutun) {
-		new Thread(new Runnable() {
+	public Zukunft(Callable<T> zutun) {
+		thread = new Thread(new Runnable() {
 			public void run() {
 				try {
+					// hier passiert die eigentliche Arbeit!
 					rueck = zutun.call();
 				} catch (Exception e) {
 					ex = e;
 					e.printStackTrace();
 				}
-				finally {
-					latch.countDown();
-				}
 			}
-		}).start();
+		});
+
+		thread.start();
 	}
 
-	T get() throws Exception {
-		latch.await();
+	public boolean isDone() {
+		return !thread.isAlive();
+	}
+
+	public T get() throws Exception {
+		// warten bis unser Thread fertig ist...
+		thread.join();
+
+		// gab es eine Exception? wenn ja: weiterwerfen!
 		if (ex != null)
 			throw ex;
 

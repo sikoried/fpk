@@ -1,8 +1,8 @@
 package concurrency;
 
-class Abreisszettel {
-	volatile Integer n;
-	Abreisszettel(int n) {
+public class Abreisszettel {
+	private Integer n;
+	public Abreisszettel(int n) {
 		this.n = n;
 	}
 
