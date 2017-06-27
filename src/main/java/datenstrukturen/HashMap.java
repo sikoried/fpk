@@ -35,9 +35,6 @@ public class HashMap<K, V> implements Map<K, V> {
 			return;
 		}
 
-		if (entries[bin].next == null)
-			return entries[bin].value;
-
 		// suchen...
 		Entry<K, V> it = entries[bin], schlepp = null;
 		while (it != null) {
@@ -58,6 +55,11 @@ public class HashMap<K, V> implements Map<K, V> {
 		if (entries[bin] == null)
 			return null;
 		Entry<K, V> it = entries[bin];
+
+		// trivialfall: keine Liste!
+		if (it.next == null)
+			return it.value;
+
 		while (it != null) {
 			if (key.equals(it.key))
 				return it.value;
