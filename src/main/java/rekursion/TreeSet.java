@@ -78,7 +78,7 @@ public class TreeSet<T extends Comparable<T>> implements BasicSet<T> {
 	public boolean addAll(Collection<T> c) {
 		boolean change = false;
 		for (T e : c)
-			change = change || add(e);
+			change = add(e) || change;
 		return change;
 	}
 
