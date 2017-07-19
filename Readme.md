@@ -58,3 +58,25 @@ _Entwurf zur neuen Lehrveranstaltung im 2. Semester des Bachelorstudiengangs Wir
     - Konzeptioneller Aufbau (Verlinkung im Speicher?)
     - Realisierung einer `HashMap` via `hashCode` und `equals`
     - Realisierung einer `TreeMap` via Binärbaum und `Comparable` als Bound (Generics)
+
+# Denkanstöße und Aufgaben zur Klausurvorbereitung
+
+## Themen
+- Generics, Interfaces und Vererbung. Typische Beispiele: `Comparator<T>`, `Comparable<T>`
+- Abstrakte Klassen: Zustände und Zustandsübergänge (Zooübung; Automatikschaltgetriebe (`abstract void schalten()`), Getränkeautomat (`abstract void getraenkMischen()`), ..., immer dann, wenn viel gemeinsam ist, und nur ein Detail anders).
+
+## Datenstrukturen
+- Allgemein: `List<T>`, `Set<T>`, `Map<T>`, `Iterator<T>`: Wie verwendet man diese, und welche Vor-/Nachteile haben die Implementierungen in der Java Library?
+- ...und Realisierungen: einfach verkettete Liste, doppelt verkette Liste, rueckwaerts verkette Liste, sortierte Liste (prio-queue), Stack, Queue, ArrayList, Binaerbaum, n-aerer Baum, ...mit `Comparable<T>` oder `Comparator<T>`
+- ...daraus abgeleitete Strukturen: Set und Map realisiert als Liste, Baum oder Hasharray
+- ...Iteratoren auf diesen Strukturen: Vorwärtsiterator, Rückwärtsiterator (bei doppelt verketter Liste einfach; sonst via Stack), Baumiterator (Agenda!), sortierter Iterator (im Baum: depth-first-Abstieg), filternder Iterator (auslassen, bzw. seek!)
+
+## Algorithmen, Patterns und Sprachfeatures
+- Factorypattern: Generatorfunktionen für Instanzen eines Interafaces (z.B. die iterator() Methode, oder andere)
+- Breiten- und Tiefensuche: Agenda als Stack oder Liste?
+- Verwendung von bounds um Schnittstellenkompatibilität zu erzwingen
+- Sortieren: Insertion- und Selectionsort (Sortieren durch Einfügen bzw. auswählen), Bubblesort, Mergesort (rekursiv), Quicksort (rekursiv und iterativ)
+- Rekursion und Iteration: Aufrufreihenfolgen, Besuchsreihenfolge im Baum (z.B. Binaerbaum: links- und rechts-absteigende Rekursion)
+
+Fuer alle diese Dinge braucht man "nur" das was wir in diesem Semester gelernt haben (listen-sets-maps, iterator, generics). Wenn man nicht weiterkommt: Googlen bis mans hat. 
+Ich garantiere: wer sich alle diese Sachen selbst erarbeitet und damit verinnerlicht hat, der hat in keiner Programmierveranstaltung mehr Schwierigkeiten!
